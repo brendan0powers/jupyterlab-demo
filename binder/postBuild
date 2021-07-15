@@ -1,13 +1,15 @@
 set -ex
 
 invoke build --env-name=root --no-kernel
-invoke demofiles
-invoke talk -t demo
+find . -maxdepth 1 -type f -delete
+cp -rf notebooks/* .
 rm -rf demofiles
 rm -rf notebooks
 rm -rf narrative
 rm -rf slides
-rm demo/notebooks/Julia.ipynb
+rm -rf demo/
+rm -rf data/
+
 jupyter lab clean
 
 # Setup a workspace
