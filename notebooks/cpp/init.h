@@ -15,6 +15,7 @@
 
 #include <QtGlobal>
 #include <QString>
+#include <QDebug>
 #include <iostream>
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -40,5 +41,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 
 void cppInit() {   
     qInstallMessageHandler(myMessageOutput);
+    
+    qDebug() << "C++ Backend Initialized!";
 }
 
